@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WheelDrop Community Showroom</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#DFFF00", // Neon Yellow
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#0A0A0A",
+                        "card-dark": "#141414",
+                        "border-dark": "#262626",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white min-h-screen flex overflow-hidden">
+<aside class="w-64 border-r border-border-dark flex flex-col bg-background-dark z-20">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-8">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-black font-bold">tire_repair</span>
+</div>
+<h1 class="text-xl font-display font-bold tracking-tight">WheelDrop</h1>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-card-dark rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="font-medium">Wheel Studio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-card-dark rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="font-medium">History</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-card-dark rounded-lg transition-colors group justify-between" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">brush</span>
+<span class="font-medium">Wrap Studio</span>
+</div>
+<span class="text-[10px] font-bold bg-primary text-black px-1.5 py-0.5 rounded leading-none">NEW</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-primary bg-primary/10 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+<span class="font-medium">Community</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-card-dark rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-8 flex items-center gap-2 px-3">
+<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+<span class="text-xs font-medium text-slate-500">All operational</span>
+</div>
+</div>
+<div class="mt-auto p-4 space-y-4">
+<div class="bg-card-dark border border-border-dark p-4 rounded-xl">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Free Plan</h3>
+<p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                    Unlock 50 renders every month with no watermark.
+                    <span class="block mt-1 text-primary">Starter • $4.99/mo</span>
+</p>
+<button class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                    Upgrade Now
+                </button>
+</div>
+<div class="flex items-center gap-3 p-2 bg-card-dark rounded-xl border border-border-dark">
+<div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center border border-border-dark text-slate-400 font-bold">
+                    Ş
+                </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Şerafettin Altuntaş</p>
+<p class="text-[11px] text-slate-500">4 credits left</p>
+</div>
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-screen bg-background-dark overflow-y-auto">
+<header class="h-16 border-b border-border-dark flex items-center justify-between px-8 bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<button class="p-1.5 hover:bg-card-dark rounded border border-border-dark">
+<span class="material-symbols-outlined text-lg text-slate-400">chevron_left</span>
+</button>
+<h2 class="font-display font-bold text-lg">Community Showroom</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-card-dark border-border-dark border rounded-full py-1.5 pl-9 pr-4 text-sm focus:border-primary focus:ring-0 w-64" placeholder="Search renders..." type="text"/>
+</div>
+<button class="text-sm font-semibold bg-blue-600/10 text-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600/20 transition-all">
+                    Share Your Render
+                </button>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto w-full">
+<div class="mb-10">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h1 class="text-4xl font-display font-bold tracking-tight mb-2">Showroom</h1>
+<p class="text-slate-400">Discover and remix the community's best automotive creations.</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-1.5 bg-primary text-black font-bold text-xs rounded-full">#Trending</button>
+<button class="px-4 py-1.5 bg-card-dark border border-border-dark hover:border-primary text-xs rounded-full transition-colors text-slate-300">#Performance</button>
+<button class="px-4 py-1.5 bg-card-dark border border-border-dark hover:border-primary text-xs rounded-full transition-colors text-slate-300">#Classic</button>
+<button class="px-4 py-1.5 bg-card-dark border border-border-dark hover:border-primary text-xs rounded-full transition-colors text-slate-300">#JDM</button>
+<button class="px-4 py-1.5 bg-card-dark border border-border-dark hover:border-primary text-xs rounded-full transition-colors text-slate-300">#OffRoad</button>
+<button class="px-4 py-1.5 bg-card-dark border border-border-dark hover:border-primary text-xs rounded-full transition-colors text-slate-300">#Euro</button>
+<button class="px-4 py-1.5 bg-card-dark border border-border-dark hover:border-primary text-xs rounded-full transition-colors text-slate-300">#Luxury</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden group">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="JDM Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5l4_zGW2DDxsjgJ7UVEDsvZdThyNRxA4Tz4o5_fkgmL94oprjZV7te1ed5QcbiuqeRazbxQJpKG1u3tuIXf-1YCfimVRWfYroqBCYIbj6lBVCeGg7rC8So8-q8nWjHQGHw4DmjQef0JQBPIe3DaJCgIf9D7E5E__ml9c8l-iRyUuRJGDsJEZwDjtVnIlUMobZBX6R89IrmTAALyQT0PM1EK49YyDWX1dmoM-0keGGmrXjVwxQChzqcqdtBSnEiQ6ns8up6Yt1g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-primary text-black font-bold py-2 rounded-lg flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                                REMIX SETUP
+                            </button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 overflow-hidden border border-border-dark">
+<img alt="avatar" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJNkUgF_25Ol5a8sPXFy3VAC-K4wm_mAviai-jeDZ6iMYemQqUjZR1Uaqy3WgCY7KuSSZqJTdpBqrUpH6MNi4tiikR4WwJQ0BVrVqm52S7gFGGaNB8X7lxNVh85yMkEmqLmnPxhDkuiglXzPxFkh5UJ8PuRDN-A7QZ3GOUnPJPQVPgEnnnZ2nBgNPkLObJxhHcIxTEk6hnHveV-E3_dwhj6q55QX_zc70Nw98d6n1rLbuWvF-yo4c_VYqsAmVnd6cpI5eUHdPvFA"/>
+</div>
+<div>
+<p class="text-sm font-semibold">SpeedHunter_99</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">#JDM • 2h ago</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 group/like">
+<span class="material-symbols-outlined text-primary text-xl filled-icon group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-bold text-slate-300">1.2k</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden group">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="Classic Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbkhYAkpR62mMC6gT85tfro2Db__kHtxhDAl1qpKOVnFKffca3OsiMlxQhPY9858wG7lXC56RFSo9gdmFkSPOS6Nf2NBkV_JBtzv_jWCzXB4dLnWfyPc4tHeHYKS38AIcmMTP2qGtD7Gy8jnOdpb57vkAA83xkkuY1Vz7ExeHCm7b9h5IYqcI3Q8I9zobDH5pNOlYD9r-OazbTpEGUDGanU9VRG4pDKIdQKFHw5fNWC5rMDKCwTmTZxTty89PxXvI66QMUN5cNBg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-primary text-black font-bold py-2 rounded-lg flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                                REMIX SETUP
+                            </button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 overflow-hidden border border-border-dark">
+<img alt="avatar" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1HvkUExbURPgIcLybYTFA2iUjYPYP4hQzHP9HNH14-1AORrfEkIFx_7yYHE1oQXUTkdADsTilC4mAztrJ9rfOKtkJPCJOSmuKyZPol0V6MeJyGCV425pEvICnwdLe1WOVdspd9HYwwVyiz__Yrt9WcrR2DX2-YoqbBee7d19bGSJh9cOULVGk_r3X1b2CYQm3Yh8HS8v-mK6LmZl2WyIAd9LaVt562gKSWrGA5YsYWeFUqQIiEMJqqmw5EcTwBGGZ6j4VhLF45A"/>
+</div>
+<div>
+<p class="text-sm font-semibold">VintageSoul</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">#CLASSIC • 5h ago</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 group/like">
+<span class="material-symbols-outlined text-primary text-xl filled-icon group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-bold text-slate-300">842</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden group">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="Performance Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB96nymp1lkFVfDQcw8n6H0z2TvOILa-RHzWUwrikK0-wLMIDzLBlYi-geGIjGAXW_GwJnHYJRIt2ZKmCfKpV8IrbvDG98H9sk2vQ8eS-WAq1OwYae7SDBEPHUEg9pMY5a-8aGqYgDbwF6oICZAWypfKuCW8P5loDUfzAVzyAPBU0fN29e2jqjxZHl3MvCVKVuNDB0NfAX6GlGHuOA8CA6pb2moB1mMhhRsKQqlsccU4j370ISH_YHKpds9WT9_j2Ax4hNRXaVpNg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-primary text-black font-bold py-2 rounded-lg flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                                REMIX SETUP
+                            </button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 overflow-hidden border border-border-dark">
+<img alt="avatar" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDThlLqiTggqiByghUmuWQM9dQJYfipRd3VJts9R4LyDhm7GphLmZAxMQ9CpmRQGovlflxIneY0DoF9kEXPASFOoQO6CK4iMUv4S_PwcJ0zjLzVxu4VwU4xUY9lpJUTRJxxBVmcT-VUQR5bpL1zs2aHd3_m9owKA92fQSZORuTMjnDZQWYlIUkTDgfQVG6ueVq9D0XXJZ5p2lmXLzKjeZaTMxt-hY7E2bdgjazsaLiRkquapBGtWElnr8pScNrYseZ2tP59D2-x9A"/>
+</div>
+<div>
+<p class="text-sm font-semibold">DriftKing_X</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">#PERFORMANCE • 1d ago</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 group/like">
+<span class="material-symbols-outlined text-primary text-xl filled-icon group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-bold text-slate-300">2.1k</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden group">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="Euro Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt0g3gXzECwYr5-u9R-xMMX_zexSVlVFzNgJAg-EhFBmD5L24sQvOrR0Ebw0PuMxa0QosWThyjbPss0kPQpJHUG5RE4sW6U2IIIWdGPZaOBxLS9qfg1Ffc0BHo2LeYiuliEHT74xAu6tRERaqeERQJONs9zqs-mnkW9ijN3cIiQFJA-PAV92DbBzbD2Fk9WnrryV0uVxbMQTtEzTlCcV3epf3jwBZDLkFNQenlPotR9lHsnsXTdFpM50jw9M54buN3Z_QJ2nslbQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-primary text-black font-bold py-2 rounded-lg flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                                REMIX SETUP
+                            </button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 overflow-hidden border border-border-dark">
+<img alt="avatar" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsZ9O4wTLVbUaT8U-1iZVsyp9F7Kxyl6zYYoKpSSSMtf1OfdW0mV4F-QQHcrk9i4FlJC9BzBomgv4-FEjGGhWUQjA-hoXim8vnbBWhgeWGCRZl4296veUzBFwy1xFmsqRRmVQC58API58mpgEJJLOwzOq8Ahqeea6oK7MyV-Dp7Y9qcZtBYpatHJiimcgzugtXZGD8TsM6SiQ_LjBW_V1PGP-9rxo9w4hnvkvBmk53_bsKTipfrRuzDcCcYJUwbvIHOm26V_9p-g"/>
+</div>
+<div>
+<p class="text-sm font-semibold">EuroSpec_Luna</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">#EURO • 3h ago</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 group/like">
+<span class="material-symbols-outlined text-primary text-xl filled-icon group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-bold text-slate-300">531</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden group">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="Luxury Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-y-xw0wIe_4rwfS7iUA2S2yYe-RRErCouloZra6zkpK0moJ68P7qaF6lxiIFkN0xzOfXMDkBOFgMhhNHNhceDME8-z-3Vr7rzpS6dKnunpu_bpLqZUv_dWB66D8KNWUNckw_fc_ZqyKNg2K8bCi4yRCK0I4As_OJmRkko_LZR_LKAwWxWD0mne5NjND8SjM980NaLXg5T5CTnWG4QmWJM6b8pmwNsEl7eqUacQGtrllUjpV-zqSXRTrB33XW338bVUTB4tmkkHQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-primary text-black font-bold py-2 rounded-lg flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                                REMIX SETUP
+                            </button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 overflow-hidden border border-border-dark">
+<img alt="avatar" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw29AOf-_yPYIfSsr8u9PW2cpEUX_-WPtNqAPtxgdm2wdrOaHoDQHB88aiIrPNeuHO3CYK6sK7FoV_HncmzG7C77Jv7EFsh3u8AzSuu_ODAFw3DDtR9Xx3tQtZ3V9FfUhLhiWUIM_KHPGW0SZYZptbwpfjYM0aBmCU7Hd2ja2WHMotBHOkAroqBrTAYcqYq_1_QJsrWYsrZjHUNRS_2NUbcaUNb0VaMG9izCTquZv5naR_znqap0Crms7R0xkuV0-mAZOpyxiGHg"/>
+</div>
+<div>
+<p class="text-sm font-semibold">PrestigeAuto</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">#LUXURY • 6h ago</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 group/like">
+<span class="material-symbols-outlined text-primary text-xl filled-icon group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-bold text-slate-300">728</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-2xl overflow-hidden group">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="OffRoad Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqauHg7SbpZ2afyLAv96QfF-AiSvJBudCEMMy7bIJAfaImcN1FwIBmcy5isyket27vBjXYwFHbwxH_8myRzKJkZblKWcQeLcMRugmED3VaR_-SCFscT3KddRfnoOpE8ovibDeOyCI7GhxHYtnIjuoJ1ycEUJWX2op4-Jxyerzg5ZSULHaZtUwe2eS0JNp7xIErRiHAxkGqk3MEdjYgOXtWB2a54_AAMngNxowzhUz3XODxNcdiRwi7IPDyEKrHzNrdpEcEZN1uUQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+<button class="w-full bg-primary text-black font-bold py-2 rounded-lg flex items-center justify-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                                REMIX SETUP
+                            </button>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 overflow-hidden border border-border-dark">
+<img alt="avatar" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB47zLLgC9T3_bBMhCVrpI1qYMEucfiQTui3OsT86sjut4qM1Xw4_m4l6DMf3D62kTsf6-L2cHnJKWuZmbfHTo_kxL0z0v_sSNSx3iUet5bR5VfxGtdk0nYX-hoKOrJfDGRO1XBuejqPwQLn4X8xfNZ6cEUztE6euB-kI7vHuVlWo2N3JfDfkMwcCIt35fA203uuKSQEuE0wG-VA-wg2po9LtZYKVppoCbwYwWc8L1npbFPDN3mBgVYXNx1E2-_q2X3KScoO2EQEw"/>
+</div>
+<div>
+<p class="text-sm font-semibold">MountainTamer</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">#OFFROAD • 12h ago</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 group/like">
+<span class="material-symbols-outlined text-primary text-xl filled-icon group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-bold text-slate-300">415</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<aside class="w-80 border-l border-border-dark bg-background-dark hidden xl:flex flex-col">
+<div class="p-6 overflow-y-auto">
+<section class="mb-10">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Top Contributors</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-card-dark rounded-xl border border-border-dark hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">01</span>
+<div class="w-10 h-10 rounded-full bg-slate-800 border border-border-dark overflow-hidden">
+<img alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBffnrSqmxz0os1ZSdYA4WtV_Gd8ROqGIhbGj3WbpE7Jf_eblnxo9wTz3VelHn1ZqTz2aC61Yay6b_p6GKDCv6EvYhyfJ9un9fAm9JHAGQHpJJo9AfotsDjiEYIXNl78gtyAH3khEH-nl0nbcJr9NgXTOa2c8w1I2cIvHdlrni0oboX2B53eHRFaooAgODSAOLIGZdTtaISURSEycqxDaqLYSFreyDpAxxUz9kVTBR_2FBYCUPhUBiXjiu1OE_qAvem7bHfjSd9hw"/>
+</div>
+<div>
+<p class="text-sm font-semibold">MaxDesign</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-tight">42 Renders</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-card-dark rounded-xl border border-border-dark hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">02</span>
+<div class="w-10 h-10 rounded-full bg-slate-800 border border-border-dark overflow-hidden">
+<img alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmJzdOGIoRpCkR_xOX4ncJ3PC8mm0gqc8UjYUBjTx6pPzSCCcqpOr-T--U9kGsEeU215Fguvt7tubqa7JC70dQsxp8qj8XGe3SiQTA8XK4Ju0ykY0lJjXRn4PGsq3HXnTlh20G_eESCV4gtPOK8Zh7gR11pRosIf6I2kk8kUWMp7HXxn0vxh6oQTR_Grbe6zgfaqMiV9rHYvWQlqXS64D-weW7q05uvA0bi29zJJEnYpebryzOeWskMENLKehxtWdQlj2ztCM2Vw"/>
+</div>
+<div>
+<p class="text-sm font-semibold">Sam_Visuals</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-tight">38 Renders</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-card-dark rounded-xl border border-border-dark hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">03</span>
+<div class="w-10 h-10 rounded-full bg-slate-800 border border-border-dark overflow-hidden">
+<img alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlGZ5qaqa5UkB06f0PwI8QEwH5aKfmWGvnBUnLTiybKGhDKQ6oVBF5fEXAHzXVuCe804OnSfENblfoXnDuhW_NfcKYV4DtK9YzCmrESejCQ7_C8SsqhJ_O7wrUcario9rk7Ppq8JO3atyzfMfkxnHLc6kDAIOZHoMlOaegv95jqI3aUjvpj6bCXkjfAn-AyIaIJg7Bd0aHdYMqb_ODMNDlvTeCvThy--v0dXS3LJOJyb2oLoXi-3N9Wehu5inZFz_P1BXRz2Zb_A"/>
+</div>
+<div>
+<p class="text-sm font-semibold">KimberlyW</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-tight">31 Renders</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Trending Wheels</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-card-dark border border-border-dark rounded-xl p-3 hover:border-primary transition-colors cursor-pointer group">
+<div class="aspect-square bg-background-dark rounded-lg mb-2 flex items-center justify-center border border-border-dark">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors text-3xl">brightness_7</span>
+</div>
+<p class="text-[11px] font-bold text-center truncate">Forgiato F2.01</p>
+<p class="text-[9px] text-slate-500 text-center uppercase">1.4k Swaps</p>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-xl p-3 hover:border-primary transition-colors cursor-pointer group">
+<div class="aspect-square bg-background-dark rounded-lg mb-2 flex items-center justify-center border border-border-dark">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors text-3xl">token</span>
+</div>
+<p class="text-[11px] font-bold text-center truncate">TE37 Saga</p>
+<p class="text-[9px] text-slate-500 text-center uppercase">2.1k Swaps</p>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-xl p-3 hover:border-primary transition-colors cursor-pointer group">
+<div class="aspect-square bg-background-dark rounded-lg mb-2 flex items-center justify-center border border-border-dark">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors text-3xl">blur_on</span>
+</div>
+<p class="text-[11px] font-bold text-center truncate">BBS RS Gold</p>
+<p class="text-[9px] text-slate-500 text-center uppercase">980 Swaps</p>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-xl p-3 hover:border-primary transition-colors cursor-pointer group">
+<div class="aspect-square bg-background-dark rounded-lg mb-2 flex items-center justify-center border border-border-dark">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors text-3xl">ac_unit</span>
+</div>
+<p class="text-[11px] font-bold text-center truncate">Work Emotion</p>
+<p class="text-[9px] text-slate-500 text-center uppercase">1.2k Swaps</p>
+</div>
+</div>
+</section>
+</div>
+<div class="p-6 mt-auto border-t border-border-dark">
+<button class="w-full py-3 bg-primary/10 text-primary border border-primary/20 rounded-xl font-bold text-xs hover:bg-primary/20 transition-all">
+                VIEW GLOBAL RANKING
+            </button>
+</div>
+</aside>
+
+</body></html>

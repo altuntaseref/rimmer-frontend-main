@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WheelDrop Detailed Billing &amp; Plans</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9d51f",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#0a0a0a",
+                        "surface-dark": "#1a1a17",
+                        "border-dark": "#2d2d26",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(26, 26, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(249, 213, 31, 0.1);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 15px rgba(249, 213, 31, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="border-b border-border-dark bg-background-dark/80 sticky top-0 z-50 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center text-black">
+<span class="material-symbols-outlined font-bold">blur_on</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight">WheelDrop</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Projects</a>
+<a class="text-primary border-b-2 border-primary pb-1 text-sm font-medium" href="#">Billing</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg">search</span>
+<input class="bg-surface-dark border-border-dark rounded-full pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary w-64" placeholder="Search invoices..." type="text"/>
+</div>
+<button class="p-2 text-slate-400 hover:text-white transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+</button>
+<div class="size-10 rounded-full border-2 border-border-dark overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYM1ZfS7a0OZE1rEKFZ7gIk9AeGNeqJha-ldG7pmjIc2Wt5nZRfWUtERbhi24KXiy5SBEBTn8nJOUwHR35c6UkpoXYArJLXaCN4f1GnMtH9q8JZW4A1kvfQxmdw3DfdeCQpBUBZd45XXXePesGPb6QvjPwpyBxDAUBh48W8Xo5ZokY9Hv8zNsOQNWvFjRBJHJPxPT1T8Ba-SMdKVTKro9ft5UcATvoLXMBrRmFtRLRk1V8A-pzryfHcMi1Fwtr5oEMhv8ULVz6Ug"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-10 space-y-10">
+<!-- Page Header & Breadcrumbs -->
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<a class="hover:text-primary" href="#">Account</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-300">Billing &amp; Subscription</span>
+</div>
+<h1 class="text-4xl font-bold">Billing &amp; Subscription</h1>
+<p class="text-slate-400">Manage your subscription tier, track credit usage, and view payment history.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Current Plan Overview -->
+<div class="lg:col-span-2 space-y-6">
+<div class="glass-card rounded-xl p-8 border-l-4 border-l-primary relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">Current Plan</span>
+<h3 class="text-3xl font-bold mb-1">Pro Plan</h3>
+<p class="text-slate-400 text-sm">Active since Jan 2023 • Next billing: Oct 24, 2023 ($29.00)</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full flex items-center gap-2 transition-all neon-glow">
+                            Upgrade Now
+                            <span class="material-symbols-outlined text-lg">bolt</span>
+</button>
+</div>
+<!-- Monthly Credits Progress -->
+<div class="mt-10 space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-sm font-medium text-slate-300">Monthly Credits</p>
+<p class="text-2xl font-bold">450 <span class="text-slate-500 text-lg font-normal">/ 1,000 used</span></p>
+</div>
+<span class="text-primary text-sm font-bold">45% Consumed</span>
+</div>
+<div class="h-3 w-full bg-border-dark rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(249,213,31,0.5)]" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+<!-- Credit Top-up Section -->
+<div class="glass-card rounded-xl p-8">
+<div class="flex items-center justify-between mb-6">
+<h4 class="text-xl font-bold">Buy Extra Credits</h4>
+<p class="text-sm text-slate-400">Add credits instantly for urgent projects.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<button class="group p-4 rounded-xl border border-border-dark hover:border-primary transition-all flex flex-col items-center gap-2">
+<span class="text-slate-400 text-xs font-bold uppercase group-hover:text-primary">Starter Pack</span>
+<span class="text-2xl font-bold">+50</span>
+<span class="text-primary font-bold">$5.00</span>
+</button>
+<button class="group p-4 rounded-xl border-2 border-primary bg-primary/5 transition-all flex flex-col items-center gap-2 relative">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-black text-[10px] font-black px-2 py-0.5 rounded-full">POPULAR</span>
+<span class="text-slate-400 text-xs font-bold uppercase group-hover:text-primary">Power Pack</span>
+<span class="text-2xl font-bold">+100</span>
+<span class="text-primary font-bold">$9.00</span>
+</button>
+<button class="group p-4 rounded-xl border border-border-dark hover:border-primary transition-all flex flex-col items-center gap-2">
+<span class="text-slate-400 text-xs font-bold uppercase group-hover:text-primary">Pro Pack</span>
+<span class="text-2xl font-bold">+500</span>
+<span class="text-primary font-bold">$35.00</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Payment Methods Card -->
+<div class="space-y-6">
+<div class="glass-card rounded-xl p-8 h-full flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-xl font-bold">Payment Methods</h4>
+<button class="text-primary text-sm font-bold hover:underline">Add New</button>
+</div>
+<div class="space-y-4 flex-grow">
+<!-- Masked Card -->
+<div class="relative h-48 w-full rounded-2xl bg-gradient-to-br from-slate-800 to-black p-6 border border-slate-700 flex flex-col justify-between overflow-hidden group">
+<div class="absolute -right-10 -top-10 size-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-3xl text-slate-400">contactless</span>
+<img alt="Mastercard" class="h-8 opacity-80" data-alt="Mastercard logo on dark gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKOKpRNGwzetiXPVxFLBOE5SAGMRHoRqQBDPE0wNN8bUu6KNnywdwh-dyh6Q24MqvCcXpUzfHWlphOkKO_CNC2NRbuJ_JwVSWgSuAE9VebVpAW92i2IZ5xDIb-6AfDd_SB-m09fNtA2qOcVLWKjsPsuaMwxjEJdVVqUfg8b-6DjxzSLUL6-i-LJASZrlJ0mLoPpVe5uOFPQ6dFyOEYwuOxeoqf2En72mEkdUWz_92vcMlxriQmKbdydcijdh9KJQkY2wYpSs-Y9g"/>
+</div>
+<div class="space-y-1">
+<p class="text-lg font-medium tracking-[0.2em]">•••• •••• •••• 8842</p>
+<div class="flex justify-between text-xs text-slate-500 font-bold uppercase tracking-wider">
+<span>Exp 12/25</span>
+<button class="text-primary flex items-center gap-1 hover:text-white">
+                                        Edit <span class="material-symbols-outlined text-xs">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-border-dark">
+<div class="flex items-center gap-3 p-3 bg-surface-dark rounded-xl">
+<span class="material-symbols-outlined text-slate-400">verified_user</span>
+<p class="text-xs text-slate-400 leading-relaxed">Transactions are secured with 256-bit SSL encryption for your safety.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Plan Comparison Grid -->
+<section class="space-y-8">
+<h3 class="text-2xl font-bold">Compare &amp; Change Plans</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Starter -->
+<div class="glass-card rounded-xl p-8 flex flex-col border border-border-dark">
+<div class="mb-8">
+<h4 class="text-xl font-bold text-slate-300">Starter</h4>
+<div class="flex items-baseline gap-1 mt-2">
+<span class="text-4xl font-bold">$0</span>
+<span class="text-slate-500 text-sm">/mo</span>
+</div>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            100 Monthly Credits
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Basic Analytics
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Community Support
+                        </li>
+</ul>
+<button class="w-full py-3 rounded-full border border-border-dark text-slate-400 hover:text-white hover:border-slate-500 font-bold transition-all">Downgrade</button>
+</div>
+<!-- Pro (Active) -->
+<div class="bg-surface-dark rounded-xl p-8 flex flex-col border-2 border-primary relative shadow-[0_10px_40px_-15px_rgba(249,213,31,0.2)]">
+<div class="absolute top-0 right-8 -translate-y-1/2 bg-primary text-black px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">
+                        Current Plan
+                    </div>
+<div class="mb-8">
+<h4 class="text-xl font-bold text-white">Pro</h4>
+<div class="flex items-baseline gap-1 mt-2">
+<span class="text-4xl font-bold text-primary">$29</span>
+<span class="text-slate-500 text-sm">/mo</span>
+</div>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            1,000 Monthly Credits
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Advanced Reporting
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            API Access
+                        </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Priority Support
+                        </li>
+</ul>
+<button class="w-full py-3 rounded-full bg-primary/20 text-primary border border-primary font-bold cursor-default opacity-80">Stay Pro</button>
+</div>
+<!-- Enterprise -->
+<div class="glass-card rounded-xl p-8 flex flex-col border border-border-dark">
+<div class="mb-8">
+<h4 class="text-xl font-bold text-slate-300">Enterprise</h4>
+<div class="flex items-baseline gap-1 mt-2">
+<span class="text-4xl font-bold">Custom</span>
+</div>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Unlimited Credits
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Custom Workflows
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            SSO &amp; Security
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                            Dedicated Manager
+                        </li>
+</ul>
+<button class="w-full py-3 rounded-full border border-border-dark text-slate-400 hover:text-white hover:border-slate-500 font-bold transition-all">Contact Sales</button>
+</div>
+</div>
+</section>
+<!-- Billing History -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-2xl font-bold">Billing History</h3>
+<button class="text-slate-400 hover:text-white text-sm font-medium flex items-center gap-2">
+                    Export All <span class="material-symbols-outlined text-lg">download</span>
+</button>
+</div>
+<div class="glass-card rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-dark border-b border-border-dark">
+<th class="px-6 py-4 text-xs font-black uppercase tracking-wider text-slate-500">Date</th>
+<th class="px-6 py-4 text-xs font-black uppercase tracking-wider text-slate-500">Amount</th>
+<th class="px-6 py-4 text-xs font-black uppercase tracking-wider text-slate-500">Status</th>
+<th class="px-6 py-4 text-xs font-black uppercase tracking-wider text-slate-500 text-right">Invoice</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 text-sm font-medium">Sep 24, 2023</td>
+<td class="px-6 py-5 text-sm font-bold">$29.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full text-xs font-bold uppercase">
+<span class="size-1.5 bg-emerald-500 rounded-full"></span> Paid
+                                </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 text-sm font-medium">Aug 24, 2023</td>
+<td class="px-6 py-5 text-sm font-bold">$29.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full text-xs font-bold uppercase">
+<span class="size-1.5 bg-emerald-500 rounded-full"></span> Paid
+                                </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 text-sm font-medium">Jul 24, 2023</td>
+<td class="px-6 py-5 text-sm font-bold">$29.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full text-xs font-bold uppercase">
+<span class="size-1.5 bg-emerald-500 rounded-full"></span> Paid
+                                </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 text-sm font-medium">Jun 24, 2023</td>
+<td class="px-6 py-5 text-sm font-bold">$14.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full text-xs font-bold uppercase">
+<span class="size-1.5 bg-emerald-500 rounded-full"></span> Paid
+                                </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-center mt-6">
+<button class="text-sm font-bold text-slate-500 hover:text-white transition-colors">View All Transaction History</button>
+</div>
+</section>
+</main>
+<footer class="max-w-7xl mx-auto px-6 py-12 border-t border-border-dark flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-symbols-outlined">blur_on</span>
+<span class="text-sm">© 2023 WheelDrop SaaS. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Terms of Service</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Support Center</a>
+</div>
+</footer>
+</body></html>
