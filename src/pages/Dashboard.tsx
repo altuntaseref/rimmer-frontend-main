@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
       const uploadResponse = await axios.post('/api/generations/upload', formData);
       const { id: generationId } = uploadResponse.data;
       const processResponse = await axios.post(`/api/generations/${generationId}/process`);
-      setResultImageUrl(processResponse.data.result_image_url);
+      setResultImageUrl(processResponse.data.processed_image_url);
 
     } catch (err: unknown) {
       console.error('Generation failed:', err);
