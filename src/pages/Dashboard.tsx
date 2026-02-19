@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'; // useEffect eklendi
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import axios from 'axios';
 import { useTranslation, Trans } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
@@ -14,7 +14,6 @@ interface Generation {
   created_at: string;
 }
 
-// Basic toggle component for settings
 const Toggle: React.FC<{ label: string; sublabel?: string; checked: boolean; onChange: (checked: boolean) => void; }> = ({ label, sublabel, checked, onChange }) => {
     const { t } = useTranslation();
     return (
@@ -51,11 +50,10 @@ const Dashboard: React.FC = () => {
   const [autoDetectHubs, setAutoDetectHubs] = useState(true);
   const [lowerSuspension, setLowerSuspension] = useState(false);
 
-  // State for History (New)
+  // State for History
   const [recentGenerations, setRecentGenerations] = useState<Generation[]>([]);
   const [selectedGeneration, setSelectedGeneration] = useState<Generation | null>(null);
 
-  // Fetch recent generations on mount
   useEffect(() => {
     fetchRecentGenerations();
   }, []);
@@ -63,10 +61,42 @@ const Dashboard: React.FC = () => {
   const fetchRecentGenerations = async () => {
     try {
         const response = await axios.get<Generation[]>('/api/generations?status=completed');
-        // İsteğe bağlı: En yeniden en eskiye sıralama veya slice ile son 5 tanesini alma
-        setRecentGenerations(response.data.reverse()); 
+        
+        // Veriyi 'created_at' tarihine göre En Yeniden -> En Eskiye sıralıyoruz
+        const sortedData = response.data.sort((a, b) => 
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+
+        setRecentGenerations(sortedData); 
     } catch (err) {
         console.error("Failed to fetch history", err);
+    }
+  };
+
+  // --- YENİ EKLENEN FONKSİYON: DOSYA İNDİRME ---
+  const handleDownload = async (url: string | null, filename: string) => {
+    if (!url) return;
+
+    try {
+        // Görseli arka planda veri olarak çekiyoruz
+        const response = await fetch(url);
+        const blob = await response.blob();
+        
+        // Geçici bir indirme bağlantısı oluşturuyoruz
+        const blobUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        
+        // Temizlik
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+        console.error('Download failed, opening in new tab:', error);
+        // Eğer fetch güvenlik nedeniyle engellenirse yedek olarak yeni sekmede aç
+        window.open(url, '_blank');
     }
   };
 
@@ -107,8 +137,6 @@ const Dashboard: React.FC = () => {
       const processResponse = await axios.post(`/api/generations/${generationId}/process`);
       
       setResultImageUrl(processResponse.data.processed_image_url);
-      
-      // İşlem başarılı olduğunda listeyi güncelle
       fetchRecentGenerations();
 
     } catch (err: unknown) {
@@ -138,8 +166,6 @@ const Dashboard: React.FC = () => {
     .border-primary { border-color: var(--primary-color); }
     .shadow-primary { box-shadow: 0 0 15px 0 rgba(223, 255, 0, 0.3); }
     .drop-zone:hover { border-color: var(--primary-color); }
-    
-    /* Scrollbar styling for history */
     .history-scroll::-webkit-scrollbar { height: 6px; }
     .history-scroll::-webkit-scrollbar-track { background: #1A1A1A; }
     .history-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
@@ -163,7 +189,6 @@ const Dashboard: React.FC = () => {
                 className="bg-[#1A1A1A] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto border border-gray-800 flex flex-col relative"
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Close Button */}
                 <button 
                     onClick={() => setSelectedGeneration(null)}
                     className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/80 rounded-full p-2 text-white transition-colors"
@@ -171,13 +196,11 @@ const Dashboard: React.FC = () => {
                     <span className="material-icons-outlined">close</span>
                 </button>
 
-                {/* Header */}
                 <div className="p-6 border-b border-gray-800">
                     <h3 className="font-display font-bold text-xl text-white">Generation #{selectedGeneration.id}</h3>
                     <p className="text-gray-400 text-xs">{new Date(selectedGeneration.created_at).toLocaleString()}</p>
                 </div>
 
-                {/* Content */}
                 <div className="p-6 flex flex-col gap-6">
                     {/* Main Result */}
                     <div className="w-full bg-[#101010] rounded-xl overflow-hidden border border-gray-700">
@@ -189,7 +212,6 @@ const Dashboard: React.FC = () => {
                         )}
                     </div>
 
-                    {/* Source Images */}
                     <div className="grid grid-cols-2 gap-4">
                         <div className="bg-[#101010] rounded-xl overflow-hidden border border-gray-700">
                             <div className="text-xs font-bold text-gray-500 uppercase p-3 border-b border-gray-800 bg-[#0a0a0a]">Original Vehicle</div>
@@ -202,23 +224,18 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Footer Actions (Optional) */}
                 <div className="p-6 border-t border-gray-800 bg-[#151515] flex justify-end">
-                     <a 
-                        href={selectedGeneration.processed_image_url || '#'} 
-                        download={`generation_${selectedGeneration.id}.png`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="bg-primary/10 text-primary px-4 py-2 rounded-lg font-bold hover:bg-primary hover:text-black transition-all flex items-center gap-2"
+                     {/* GÜNCELLENDİ: href yerine onClick kullanıldı */}
+                     <button 
+                        onClick={() => handleDownload(selectedGeneration.processed_image_url, `generation_${selectedGeneration.id}.png`)}
+                        className="bg-primary/10 text-primary px-4 py-2 rounded-lg font-bold hover:bg-primary hover:text-black transition-all flex items-center gap-2 cursor-pointer"
                      >
                          <span className="material-icons-outlined text-sm">download</span> Download
-                     </a>
+                     </button>
                 </div>
             </div>
         </div>
       )}
-      {/* --- END MODAL --- */}
-
 
       {/* Left Sidebar */}
       <aside className="w-[380px] bg-[#1A1A1A] p-8 flex flex-col gap-6 overflow-y-auto border-r border-gray-800">
@@ -271,14 +288,12 @@ const Dashboard: React.FC = () => {
             </div>
         </div>
 
-        {/* Placement Settings */}
         <div className="flex flex-col gap-4">
             <h2 className="text-xs font-bold uppercase text-gray-400">{t('placement_settings')}</h2>
             <Toggle label={t('auto_detect_hubs')} checked={autoDetectHubs} onChange={setAutoDetectHubs} />
             <Toggle label={t('lower_suspension')} sublabel="beta" checked={lowerSuspension} onChange={setLowerSuspension} />
         </div>
 
-        {/* Generate Button */}
         <button 
             onClick={handleGenerate} 
             disabled={isLoading || !carImage || !rimImage}
@@ -288,7 +303,7 @@ const Dashboard: React.FC = () => {
             {isLoading ? t('generating') : t('generate_preview')}
         </button>
 
-        {/* Recently Uploaded Section (UPDATED) */}
+        {/* Recently Uploaded Section */}
         <div className="mt-auto flex flex-col gap-4 pt-4 border-t border-gray-800">
             <div>
                 <h2 className="text-xs font-bold uppercase text-gray-400 mb-3">{t('recently_uploaded')}</h2>
@@ -298,10 +313,11 @@ const Dashboard: React.FC = () => {
                             <div 
                                 key={gen.id} 
                                 onClick={() => setSelectedGeneration(gen)}
-                                className="w-16 h-16 min-w-[64px] bg-[#101010] rounded-md flex items-center justify-center border border-gray-700 overflow-hidden cursor-pointer hover:border-primary transition-all hover:scale-105"
+                                className="w-16 h-16 min-w-[64px] bg-[#0a0a0a] rounded-md flex items-center justify-center border border-gray-700 overflow-hidden cursor-pointer hover:border-primary transition-all hover:scale-105"
                             > 
                                 {gen.processed_image_url ? (
-                                    <img src={gen.processed_image_url} alt={`Gen ${gen.id}`} className="w-full h-full object-cover" />
+                                    // GÜNCELLENDİ: object-cover -> object-contain
+                                    <img src={gen.processed_image_url} alt={`Gen ${gen.id}`} className="w-full h-full object-contain p-0.5" />
                                 ) : (
                                     <span className="material-icons-outlined text-gray-600">image</span>
                                 )}
@@ -322,7 +338,6 @@ const Dashboard: React.FC = () => {
 
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 p-8 flex flex-col">
         <div className="flex-1 bg-[#1A1A1A] rounded-2xl flex items-center justify-center relative overflow-hidden border border-gray-800">
             {error && <div className="absolute top-4 left-4 right-4 bg-red-500/20 text-red-400 border border-red-500 p-3 rounded-lg z-20">Error: {error}</div>}
